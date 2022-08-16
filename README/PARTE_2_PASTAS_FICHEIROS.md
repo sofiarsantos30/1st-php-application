@@ -1,12 +1,12 @@
-Login e Logout - Ficheiros e Pastas
+Minha Primeira Aplicação/Sistema PHP - Ficheiros e Pastas
 ==============================
 
 ## User Story #1
-Crie um ficheiro chamado `index.php` e outr chamado `config.php` na pasta raiz do exercício.
+Crie dois ficheiros, um chamado `index.php` e o outro `config.php` na pasta raiz do exercício.
 
 ```
 .
-└── exercicio-login-logout/
+└── minha-primeira-aplicacao-php/
     ├── index.php
     └── config.php
 ```
@@ -18,7 +18,7 @@ Crie uma pasta chamada `templates` na pasta raiz do exercício.
 
 ```
 .
-└── exercicio-login-logout/
+└── minha-primeira-aplicacao-php/
     ├── index.php
     ├── config.php
     └── templates
@@ -37,7 +37,7 @@ Dentro da pasta `templates`, crie os seguintes ficheiros.
 
 ```
 .
-└── exercicio-login-logout/
+└── minha-primeira-aplicacao-php/
     ├── index.php
     ├── config.php
     └── templates/
@@ -55,7 +55,7 @@ Crie uma pasta chamada `functions` na pasta raiz do exercício.
 
 ```
 .
-└── exercicio-login-logout/
+└── minha-primeira-aplicacao-php/
     ├── index.php
     ├── config.php
     ├── templates/
@@ -78,7 +78,7 @@ Dentro da pasta `functions`, crie os seguintes ficheiros.
 
 ```
 .
-└── exercicio-login-logout/
+└── minha-primeira-aplicacao-php/
     ├── index.php
     ├── config.php
     ├── templates/
@@ -104,7 +104,7 @@ Dentro da pasta `css`, crie um ficheiro chamado `style.css`.
 
 ```
 .
-└── exercicio-login-logout/
+└── minha-primeira-aplicacao-php/
     ├── index.php
     ├── config.php
     ├── templates/

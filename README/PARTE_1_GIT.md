@@ -1,4 +1,4 @@
-Login e Logout - Git
+Minha Primeira Aplicação/Sistema PHP - Git
 ==============================
 
 ## User Story #1
@@ -10,6 +10,8 @@ Depois de inicializado, crie uma branch a partir da branch principal (`master`) 
 Sempre que possível, faça merge de `develop` para dentro da branch principal `master`.
 
 *Veja os vários exemplos/exercícios de GIT que fizemos*
+
+https://training.github.com/downloads/pt_PT/github-git-cheat-sheet.pdf
 
 ## User Story #3
 Lembre-se que antes de fazer `commit`, é preciso adicionar o nosso ficheiro em `staging area`

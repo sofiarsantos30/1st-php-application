@@ -1,8 +1,8 @@
-Login e Logout - Backend
+Minha Primeira Aplicação/Sistema PHP - Backend
 ==============================
 
 ## User Story #1
-No ficheiro `config.php`, defina três constantes com a função `define`, uma chamada `USER_LOGIN` com o valor `admin` e a outra constante chamada `USER_PASSWORD` com o valor `123456` e por último, uma chamada `PAGE_TITLE` com o valor `Exercício PHP N.03 - Login e Logout`
+No ficheiro `config.php`, defina três constantes com a função `define`, uma chamada `USER_LOGIN` com o valor `admin` e a outra constante chamada `USER_PASSWORD` com o valor `123456` e por último, uma chamada `PAGE_TITLE` com o valor `Exercício PHP N.03 - Minha Primeira Aplicação/Sistema PHP`
 
 <details>
     <summary>Ver solução</summary>
@@ -19,8 +19,8 @@ Solução
 define('USER_LOGIN', 'admin');
 // define uma constante chamada USER_PASSWORD e atribui o valor '12345'
 define('USER_PASSWORD', '12345');
-// define uma constante chamada PAGE_TITLE e atribui o valor 'Exercício PHP N.03 - Login e Logout'
-define('PAGE_TITLE', 'Exercício PHP N.03 - Login e Logout');
+// define uma constante chamada PAGE_TITLE e atribui o valor 'Exercício PHP N.03 - Minha Primeira Aplicação/Sistema PHP'
+define('PAGE_TITLE', 'Exercício PHP N.03 - Minha Primeira Aplicação/Sistema PHP');
 ```
 
 </details>
@@ -51,7 +51,6 @@ No `index.php`, importe os seguintes ficheiros por ordem com a instrução `requ
 
 1. **config.php**
 2. functions/**url.php**
-3. templates/**head.php**
 
 
 <details>
@@ -124,6 +123,34 @@ if (empty($_GET['route'])) {
 ---
 
 ## User Story #5
+Crie uma pasta chamada `controllers`, crie os seguintes ficheiros.
+
+1. **authenticate.php**
+2. **dashboard.php**
+2. **logout.php**
+
+```
+.
+└── minha-primeira-aplicacao-php/
+    ├── index.php
+    ├── config.php
+    ├── templates/
+    │   ├── head.php
+    │   ├── foot.php
+    │   ├── page_login.php
+    │   ├── page_dashboard.php
+    │   └── page_not_found.php
+    └── functions/
+        ├── message.php
+        ├── url.php
+        └── auth.php
+    └── controllers/
+        ├── authenticate.php
+        ├── dashboard.php
+        └── logout.php
+```
+
+## User Story #6
 Dentro do ficheiro `index.php`, logo abaixo da primeira condição do `if`, crie uma estrutura de controle `switch`
 que recebe como parâmetro a variável `$page` que testa o seguinte caso
 
@@ -176,7 +203,7 @@ switch ($page) {
 
 ---
 
-## User Story #6
+## User Story #7
 Dentro do ficheiro `index.php`, crie uma variável chamada `$page_template` e atribua a string abaixo concatenando com o valor da variável `$page`. 
 
 ```
@@ -202,7 +229,7 @@ $page_template = 'templates/page_' . $page . '.php';
 
 ---
 
-## User Story #7
+## User Story #8
 Dentro do ficheiro `index.php`, importe o ficheiro `head.php` que está dentro na pasta templates.
 
 <details>
@@ -221,7 +248,7 @@ require_once 'templates/head.php';
 
 ---
 
-## User Story #8
+## User Story #9
 Dentro do ficheiro `index.php`, verifique se o valor atribuído na variável `$page_template` é um ficheiro e se ele existe.
 
 - **Se Verdadeiro**, dentroda condição `if`, importe com a instrução `require_once` o ficheiro que está representado na variável `$page_template`.
@@ -250,7 +277,7 @@ if (file_exists($page_template)) {
 
 ---
 
-## User Story #9
+## User Story #10
 Por último ainda no ficheiro `index.php`, importe com a instrução `require_once` o ficheiro `foot.php` que está dentro na pasta templates.
 
 <details>

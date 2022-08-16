@@ -1,4 +1,4 @@
-Login e Logout - Funções
+Minha Primeira Aplicação/Sistema PHP - Funções
 ==============================
 
 O objetivo de criar `funções` é para `facilitar/automatizar/delegar` um determinado processo, com isso fazemos um reaproveitamento de código e nos tornamos muito mais produtivos.
@@ -43,10 +43,10 @@ function url_redirect($values = []) {
     header('Location: http://localhost/?' . $buildQueryString);
 
     /*
-     * Se a variávei $values tiver um array associativo com o este conteúdo ----> ['route' => 'dashboard']
+     * Se a variável $values tiver um array associativo com o este conteúdo ----> ['route' => 'dashboard']
      * então iremos ser redirecionado para o endereço ---> http://localhost/?route=dashboard
      * 
-     * Iremos sempre ser redirecionado, isto só depende do conteúdo passado na nossa variavel $values.
+     * Iremos sempre ser redirecionado, isto só depende do conteúdo passado na nossa variável $values.
      */
     
     // Este "exit" diz para o PHP parar toda a execução do código
@@ -69,12 +69,12 @@ Dentro do ficheiro `message.php` que está na pasta `functions`, crie a função
 
 /**
  * Esta função exibe uma mensagem temporária, ou seja, se eu pedir 
- * para exibir uma mensagem temporária e página for refrescada logo em seguida,
- * então esta mensagem vai desaparecer.
+ * para exibir uma mensagem temporária e a página for refrescada (reload) logo em seguida,
+ * então esta mensagem irá desaparecer.
  * 
- * Notem o parâmetro -----> $message = '' em ---> function flash_message($message = '') {....
- * Isto significa que se nenhum valor for passado como parâmetro para
- * esta função, então ele assume uma string vazia como valor padrão
+ * Notem o parâmetro -----> ($message = '') em ---> function flash_message($message = '') {....
+ * isto significa que se eu não passar um valor como argumento para esta função, então uma string 
+ * vazia será assumida como valor padrão dentro da variável $message.
  * para esta variável.
  * 
  * @param $message string
@@ -82,31 +82,33 @@ Dentro do ficheiro `message.php` que está na pasta `functions`, crie a função
  */
 function set_flash_message($message = '') {
   // Iremos usar a super global $_SESSION para fazer este "truque"
-  // Vamos gravar a nossa mensagem dentro de uma chave n super global $_SESSION
+  // Vamos gravar a nossa mensagem dentro da chave 'flash_message' 
+  // na super global $_SESSION
   $_SESSION['flash_message'] = $message;
 
   // A função "strtotime" retorna um conjunto de números que chamamos de "TIMESTAMP"
 
-  // Por exemplo, este valor "1658587240" que representa o TIMESTAMP, seu eu converter para uma DATA/HORA
-  // vou ter o seguinte resultado: 2022-07-23 15:40:40
+  // Por exemplo, o valor "1658587240" que representa um TIMESTAMP, se eu transformar este número 
+  // em uma DATA/HORA, eu vou receber o seguinte resultado: 2022-07-23 15:40:40
   // Mais exemplos
   // 1. 1658587240 ----> 2022-07-23 15:40:40
   // 2. 1658587241 ----> 2022-07-23 15:40:41
   // 3. 1658587242 ----> 2022-07-23 15:40:42
 
-  // Resumindo, o TIMESTAMP é um conjunto de números (1658587240)
-  // e que a cada segundo o seu valor vai sendo incrementado em 1.
+  // Resumindo, o TIMESTAMP é um conjunto de números (1658587240 -> milissegundos)
+  // e que a cada segundo/milissegundos o seu valor vai sendo incrementado.
 
   // Para saber mais sobre a história do TIMESTAMP, vocês podem consultar o link abaixo, é super interessante.
   // https://treinamento24.com/library/lecture/read/873865-como-funciona-o-timestamp
   // https://hkotsubo.github.io/blog/2019-05-02/o-que-e-timestamp
 
   // Para receber o TIMESTAMP da função "strtotime", temos que pedir para retornar o TIMESTAMP de algum momento no tempo.
-  // O momento que queremos é o "agora + 1 segundos no futuro" ou seja o "now + 10 sec" ----> strtotime('now + 1 sec')
+  // O momento que queremos é o "agora + 1 segundo no futuro" ou seja o "now + 1 sec" ----> strtotime('now + 1 sec')
+  // Fonte: https://www.php.net/manual/en/function.strtotime.php
 
-  // Isto significa que a nossa mensagem só ficará prensente por 10 segundos.
-  $timestampNowPlus2Sec = strtotime('now + 1 sec');
-  $_SESSION['flash_message_timestamp'] = $timestampNowPlus2Sec;
+  // Isto significa que a nossa mensagem só será exibida durante 1 segundo.
+  $timestampNowPlus1Sec = strtotime('now + 1 sec');
+  $_SESSION['flash_message_timestamp'] = $timestampNowPlus1Sec;
 }
 ```
 
@@ -121,9 +123,10 @@ Dentro do ficheiro `message.php` que está na pasta `functions`, crie a função
 
 ```php
 /**
- * Esta função exibe uma mensagem mantida 1 segundos em uma sesssão no servidor.
+ * Esta função exibe uma mensagem que será mantida por 1 segundo em uma sesssão no servidor.
  * Para que a mensagem seja exibida, a função 'set_flash_message' deverá ser
- * chamada antes.
+ * chamada antes, passando como argumento a mensagem que queremos exibir, para só depois com a 
+ * função 'get_flash_message' exibirmos no ecrã a mensagem que foi mantida por 1 segundo.
  * 
  * @return void
  */
@@ -150,12 +153,13 @@ function get_flash_message() {
     // para dentro da variável $timestampFlashMessage
     $timestampFlashMessage = $_SESSION['flash_message_timestamp'];
 
-    // Se o TIMESTAMP que representa a hora atual for superior ao TIMESTAMP
-    // que representa o tempo que a mensagem ficará mantida em sessão, então iremos removemos
-    // as chaves 'flash_message' e 'flash_message_timestamp' de dentro da super global $_SESSION.
+    // Se o TIMESTAMP que representa o agora (now) for superior ao TIMESTAMP que foi gravado
+    // na chave 'flash_message_timestamp', então removemos as chaves
+    // 'flash_message' e 'flash_message_timestamp' de dentro da super global $_SESSION.
 
-    // A função "unset" nos casos que iremos usar logo abaixp
-    // remove a chave de dentro da super global $_SESSION.
+    // A função "unset" nos casos que iremos usar logo abaixo
+    // remove uma chave (chave do array associativo) de dentro da super global $_SESSION.
+    // https://www.php.net/manual/en/function.isset.php
         
     /*
      *  Exemplo
@@ -189,7 +193,7 @@ function get_flash_message() {
         return null;
     } else {
         // Se entrar neste else, então retornamos a mensagem que foi gravada em sessão no servidor
-        // durante os 2 segundos.
+        // durante o 1 segundo.
         return $flashMessage;
     }
 }
