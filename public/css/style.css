@@ -43,6 +43,12 @@ body, html {
     border-radius: 2px;
 }
 
+.menu ul {
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
 .menu li {
     list-style-type: none;
     padding: 15px;

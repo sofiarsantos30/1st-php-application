@@ -6,7 +6,7 @@ require_once 'config.php';
 require_once 'functions/url.php';
 require_once 'functions/auth.php';
 require_once 'functions/message.php';
-require_once 'templates/head.php';
+
 
 if (empty($_GET['route'])) {
     $page = 'login';
@@ -24,7 +24,6 @@ switch($page) {
     case 'logout':
         require_once 'controllers/logout.php';
         break;
-    
     default:
         break;
 }
