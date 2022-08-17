@@ -2,8 +2,8 @@
 
 function set_flash_message($message = '') {
     $_SESSION['flash_message'] = $message;
-    $timestampNowPlus2sec = strtotime('now + 1 sec');
-    $_SESSION['flash_message_timestamp'] = $timestampNowPlus2sec;
+    $timestampNowPlus1sec = strtotime('now + 1 sec');
+    $_SESSION['flash_message_timestamp'] = $timestampNowPlus1sec;
 }
 
 function get_flash_message() {

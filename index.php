@@ -24,6 +24,7 @@ switch($page) {
     case 'logout':
         require_once 'controllers/logout.php';
         break;
+        
     default:
         break;
 }

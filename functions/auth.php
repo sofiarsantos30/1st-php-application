@@ -7,3 +7,4 @@ function is_authenticated() {
         return true;
     }
 }
+
